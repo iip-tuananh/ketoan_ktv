@@ -85,6 +85,9 @@
                             <div class="icon_contact"><i class="fa fa-map-signs"></i></div>
                             <div class="text_contact">
                                 {{ $config->address_company }}
+                            </div> <br>
+                            <div class="text_contact">
+                               VPGD: {{ $config->address }}
                             </div>
                         </li>
                         <li class="contact-i">

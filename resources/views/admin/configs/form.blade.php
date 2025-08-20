@@ -35,6 +35,10 @@
                     <input class="form-control" ng-model="form.address_company" type="text">
                 </div>
                 <div class="form-group custom-group">
+                    <label class="form-label">Địa chỉ văn phòng giao dịch</label>
+                    <input class="form-control" ng-model="form.address" type="text">
+                </div>
+                <div class="form-group custom-group">
                     <label class="form-label">Mã số thuế</label>
                     <input class="form-control" ng-model="form.tax_code" type="text">
                 </div>
@@ -83,7 +87,7 @@
 
                 <div class="form-group custom-group">
                     <label class="form-label">Giới thiệu ngắn</label>
-                    <textarea id="my-textarea" class="form-control" ng-model="form.introduction" rows="5"></textarea>
+                    <textarea id="my-textarea" class="form-control" ck-editor ng-model="form.introduction" rows="5"></textarea>
                     <span class="invalid-feedback d-block" role="alert">
 						<strong><% errors.introduction[0] %></strong>
 					</span>

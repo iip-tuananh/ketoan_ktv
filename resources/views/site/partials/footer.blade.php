@@ -75,22 +75,25 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-6 full-xs">
+                <div class="col-md-7 col-sm-7 col-xs-7 full-xs">
 
 
-					<span class="wsp"><span class="mobile">© 2025 - Bản quyền thuộc về <span>{{ $config->web_title }}</span></span>
+					<span class="wsp">
+                        <span class="mobile">© 2025 - Bản quyền thuộc về <span>{{ $config->web_title }}</span></span>
 
 						</span>
 
-                    <p>
-
-
-                       {{ $config->address_company }}
-                    </p>
-
+                    <br>
+                    <span>
+                      {{ $config->address_company }}
+                    </span>
+                    <br>
+                    <span>
+                      VPGD: {{ $config->address }}
+                    </span>
 
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-6 full-xs text-right text-left-mobile">
+                <div class="col-md-5 col-sm-5 col-xs-5 full-xs text-right text-left-mobile">
 
                     <p>Điện thoại: <a href="tel:{{ $config->hotline }}">{{ $config->hotline }} | {{ $config->zalo }}</a></p>
 

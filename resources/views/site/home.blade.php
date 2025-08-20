@@ -53,7 +53,7 @@
                                 <h2><a href="#">Giới thiệu</a></h2>
                             </div>
                             <div class="field_work_short">
-                                {{ $config->introduction }}
+                                {!! $config->introduction !!}
                             </div>
                         </div>
                         <div class="col-xs-12">
@@ -409,7 +409,60 @@
     </section>
 
 
+    <style>
+        /* Card gọn giữa + dễ đọc */
+        .dtkh{
+            --brand:#D32F2F;                 /* đỏ thương hiệu */
+            max-width: min(980px, 92vw);     /* thu gọn bề ngang */
+            margin-inline: auto;             /* căn giữa */
+            padding: clamp(16px, 3vw, 28px);
+            box-sizing: border-box;
+            background:#fff;
+            border:1px solid #eee;
+            border-radius:16px;
+            box-shadow:0 8px 24px rgba(0,0,0,.06);
+            color:#222;
+        }
 
+        /* Đoạn giới thiệu */
+        .dtkh .field_work_short{
+            margin:0;
+            font-size:clamp(1rem, 0.95rem + .3vw, 1.825rem);
+            line-height:1.75;
+        }
+
+        /* Slogan in nghiêng, kiểu blockquote nhẹ */
+        .dtkh > i{
+            font-size: 1.525rem;
+            display:block;
+            margin-top:14px;
+            font-style:italic;               /* đảm bảo in nghiêng */
+            color:#444;
+            position:relative;
+            padding:14px 16px 14px 44px;
+            border-left:3px solid var(--brand);
+            background:linear-gradient(90deg, rgba(211,47,47,.06), rgba(211,47,47,0));
+            border-radius:10px;
+        }
+
+        /* Dấu ngoặc kép trang trí */
+        .dtkh > i::before{
+            content:"“";
+            position:absolute;
+            left:12px; top:2px;
+            font-size:36px; line-height:1;
+            color:var(--brand);
+            opacity:.9;
+        }
+
+        /* Mobile tinh chỉnh nhẹ */
+        @media (max-width:600px){
+            .dtkh{ padding: 16px 14px; }
+            .dtkh > i{ padding-left:40px; }
+            .dtkh > i::before{ font-size:30px; left:10px; top:4px; }
+        }
+
+    </style>
 
     <section class="awe-section-4">
         <div class="container">
@@ -421,39 +474,36 @@
 
                             <div class="dtkh padding-top-50">
                                 <div class="bwt_title_main">
-                                    <h2><a href="#">Khách hàng tiêu biểu</a></h2>
+{{--                                    <h2><a href="#">Khách hàng tiêu biểu</a></h2>--}}
                                 </div>
                                 <div class="field_work_short">
-                                    Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và
-                                    những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào cũng
-                                    chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng. Chúng tôi đã làm
-                                    nên những điều kỳ diệu để tôn vinh thương hiệu Việt và tự hào là một trong những Tập
-                                    đoànkinh tế tư nhân hàng đầu Việt Nam.
+                                    Trên hành trình kiến tạo chuẩn mực minh bạch và phát triển bền vững, chúng tôi khẳng định vị thế là công ty kiểm toán, kế toán, thuế và thẩm định giá uy tín hàng đầu – nơi hội tụ niềm tin, sự chính trực và giá trị trường tồn cho doanh nghiệp.
                                 </div>
+                                <i>Chúng tôi hợp tác với khách hàng để kiến tạo tương lai, niềm tin và giá trị</i>
                             </div>
 
                             <div class="header_top_brands">
 
-                                <div class="row">
-                                    <div class="owl-brands owl-carousel" data-md-items='6' data-sm-items='3' data-xs-items="2"
-                                         data-margin='0'>
+{{--                                <div class="row">--}}
+{{--                                    <div class="owl-brands owl-carousel" data-md-items='6' data-sm-items='3' data-xs-items="2"--}}
+{{--                                         data-margin='0'>--}}
 
-                                        @foreach($partners as $partner)
-                                            <div class="col-xs-12">
-                                                <a href="{{ $partner->link }}" title="{{ $partner->name }}" target="_blank">
-                                                    <img src="{{ $partner->image->path ?? '' }}"
-                                                         alt="{{ $partner->name }}">
-                                                </a>
-                                            </div>
-                                        @endforeach
-
-
+{{--                                        @foreach($partners as $partner)--}}
+{{--                                            <div class="col-xs-12">--}}
+{{--                                                <a href="{{ $partner->link }}" title="{{ $partner->name }}" target="_blank">--}}
+{{--                                                    <img src="{{ $partner->image->path ?? '' }}"--}}
+{{--                                                         alt="{{ $partner->name }}">--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        @endforeach--}}
 
 
 
-                                    </div>
 
-                                </div>
+
+{{--                                    </div>--}}
+
+{{--                                </div>--}}
 
                             </div>
                         </div>

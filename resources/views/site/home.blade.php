@@ -455,11 +455,25 @@
             opacity:.9;
         }
 
+        .dtkh > i::after {
+            content:"”";
+            position:absolute;
+            right:12px;   /* căn bên phải */
+            bottom:2px;   /* tuỳ chỉnh để cân đối với ::before */
+            font-size:36px;
+            line-height:1;
+            color:var(--brand);
+            opacity:.9;
+        }
         /* Mobile tinh chỉnh nhẹ */
         @media (max-width:600px){
             .dtkh{ padding: 16px 14px; }
             .dtkh > i{ padding-left:40px; }
             .dtkh > i::before{ font-size:30px; left:10px; top:4px; }
+
+            .field_work_short {
+                font-size: 1.425rem !important;
+            }
         }
 
     </style>
@@ -477,7 +491,7 @@
 {{--                                    <h2><a href="#">Khách hàng tiêu biểu</a></h2>--}}
                                 </div>
                                 <div class="field_work_short">
-                                    Trên hành trình kiến tạo chuẩn mực minh bạch và phát triển bền vững, chúng tôi khẳng định vị thế là công ty kiểm toán, kế toán, thuế và thẩm định giá uy tín hàng đầu – nơi hội tụ niềm tin, sự chính trực và giá trị trường tồn cho doanh nghiệp.
+                                    Phương châm dịch vụ chuẩn mực minh bạch và phát triển bền vững, chúng tôi khẳng định vị thế là công ty kiểm toán, kế toán, thuế và thẩm định giá uy tín hàng đầu – nơi hội tụ niềm tin, sự chính trực và giá trị trường tồn cho doanh nghiệp.
                                 </div>
                                 <i>Chúng tôi hợp tác với khách hàng để kiến tạo tương lai, niềm tin và giá trị</i>
                             </div>

@@ -20,6 +20,12 @@
 @endsection
 
 @section('content')
+    <style>
+        .rte h1, .rte .h1, .rte h2, .rte .h2, .rte h3, .rte .h3, .rte h4, .rte .h4, .rte h5, .rte .h5, .rte h6, .rte .h6
+        {
+            margin-top: 0.5em;
+        }
+    </style>
     <section class="bread-crumb">
         <div class="container">
 

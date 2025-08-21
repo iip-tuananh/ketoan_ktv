@@ -285,7 +285,7 @@
                                 <div class="news_home_content">
                                     <figure class="news_home_content_img">
 
-                                        <a href="khu-phuc-hop-ascott-waterfront-saigon.html">
+                                        <a href="{{ route('front.getPostDetail', $firstBlog->slug) }}">
                                             <picture>
                                                 <source media="(max-width: 480px)"
                                                         srcset="{{ $firstBlog->image->path ?? '' }}">
@@ -310,7 +310,7 @@
                                         </div>
 
                                         <div class="news_home_content_short_info">
-                                            <a href="khu-phuc-hop-ascott-waterfront-saigon.html">{{ $firstBlog->name }}</a>
+                                            <a href="{{ route('front.getPostDetail', $firstBlog->slug) }}">{{ $firstBlog->name }}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -350,7 +350,7 @@
                                             <div class="news_home_content">
                                                 <figure class="news_home_content_img">
 
-                                                    <a href="{{ route('front.blogDetail', $blog->slug) }}">
+                                                    <a href="{{ route('front.getPostDetail', $blog->slug) }}">
                                                         <picture>
                                                             <source media="(max-width: 480px)"
                                                                     srcset="{{ $blog->image->path ?? '' }}">
@@ -370,7 +370,7 @@
                                                     </a>
 
                                                     <div class="news_home_content_icon">
-                                                        <a href="{{ route('front.blogDetail', $blog->slug) }}"
+                                                        <a href="{{ route('front.getPostDetail', $blog->slug) }}"
                                                            title="{{ $blog->name }}"><i
                                                                 class="fa fa-expand"></i></a>
                                                     </div>
@@ -380,12 +380,12 @@
                                                         {{\Illuminate\Support\Carbon::parse($blog->created_at)->format('d/m/Y H:i')}}
                                                     </div>
                                                     <h3 class="news_home_content_short_title"><a
-                                                            href="{{ route('front.blogDetail', $blog->slug) }}" title="{{ $blog->name }}">{{ $blog->name }}</a></h3>
+                                                            href="{{ route('front.getPostDetail', $blog->slug) }}" title="{{ $blog->name }}">{{ $blog->name }}</a></h3>
                                                     <div class="news_home_content_short_info" title=" {{ $blog->intro }}">
                                                         {{ $blog->intro }}
                                                     </div>
                                                     <div class="news_home_content_short_readmore">
-                                                        <a href="{{ route('front.blogDetail', $blog->slug) }}">Xem tiếp <span><i
+                                                        <a href="{{ route('front.getPostDetail', $blog->slug) }}">Xem tiếp <span><i
                                                                     class="fa fa-arrow-circle-o-right"></i></span></a>
                                                     </div>
                                                 </div>

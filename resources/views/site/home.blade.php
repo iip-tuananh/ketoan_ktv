@@ -518,58 +518,58 @@
 
 
 
-    <section class="awe-section-5">
-        <!-- Feedback Customers -->
-        <section class="feedback_customers">
-            <div class="container">
-                <div class="feedback_customers_inner">
-                    <div id="sync1" class="owl-carousel owl-theme not-dqowl">
+{{--    <section class="awe-section-5">--}}
+{{--        <!-- Feedback Customers -->--}}
+{{--        <section class="feedback_customers">--}}
+{{--            <div class="container">--}}
+{{--                <div class="feedback_customers_inner">--}}
+{{--                    <div id="sync1" class="owl-carousel owl-theme not-dqowl">--}}
 
-                        @foreach($reviews as $review)
-                            <div class="item">
-                                <figure class="feedback_customers_icon">
-                                    <img
-                                        src="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/dau-hoi6008.png?1753153760720"
-                                        alt="">
-                                </figure>
-                                <div class="feedback_customers_content text-center">
-                                    <em>{{ $review->message }}</em>
-                                </div>
-                            </div>
-                        @endforeach
+{{--                        @foreach($reviews as $review)--}}
+{{--                            <div class="item">--}}
+{{--                                <figure class="feedback_customers_icon">--}}
+{{--                                    <img--}}
+{{--                                        src="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/dau-hoi6008.png?1753153760720"--}}
+{{--                                        alt="">--}}
+{{--                                </figure>--}}
+{{--                                <div class="feedback_customers_content text-center">--}}
+{{--                                    <em>{{ $review->message }}</em>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
 
-                    </div>
-                    <div class="feedback_customers_inner_line"></div>
-                    <div id="sync2" class="owl-carousel owl-theme not-dqowl">
+{{--                    </div>--}}
+{{--                    <div class="feedback_customers_inner_line"></div>--}}
+{{--                    <div id="sync2" class="owl-carousel owl-theme not-dqowl">--}}
 
-                        @foreach($reviews as $review)
-                            <div class="item">
-                                <figure class="feedback_customers_avatar_icon">
-                                    <img
-                                        src="{{ $review->image->path ?? '' }}"
-                                        alt="{{ $review->name }}">
-                                </figure>
-                                <div class="feedback_customers_avatar_content">
-                                    <h2><strong>{{ $review->name }}</strong></h2>
-                                    <em>{{ $review->position }}</em>
-                                    <div class="feedback_customers_avatar_content_star">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
+{{--                        @foreach($reviews as $review)--}}
+{{--                            <div class="item">--}}
+{{--                                <figure class="feedback_customers_avatar_icon">--}}
+{{--                                    <img--}}
+{{--                                        src="{{ $review->image->path ?? '' }}"--}}
+{{--                                        alt="{{ $review->name }}">--}}
+{{--                                </figure>--}}
+{{--                                <div class="feedback_customers_avatar_content">--}}
+{{--                                    <h2><strong>{{ $review->name }}</strong></h2>--}}
+{{--                                    <em>{{ $review->position }}</em>--}}
+{{--                                    <div class="feedback_customers_avatar_content_star">--}}
+{{--                                        <i class="fa fa-star"></i>--}}
+{{--                                        <i class="fa fa-star"></i>--}}
+{{--                                        <i class="fa fa-star"></i>--}}
+{{--                                        <i class="fa fa-star"></i>--}}
+{{--                                        <i class="fa fa-star"></i>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
 
 
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Feedback Customers -->
-    </section>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </section>--}}
+{{--        <!-- End Feedback Customers -->--}}
+{{--    </section>--}}
 
 @endsection
 

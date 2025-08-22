@@ -17,6 +17,8 @@
     <script src="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/option-selectors6008.js?1753153760720" type="text/javascript"></script>
     <script src="/site/bizweb.dktcdn.net/assets/themes_support/api.jquery.js" type="text/javascript"></script>
 
+    <link type="text/css" rel="stylesheet" href="/site/css/editor-content.css">
+
 @endsection
 
 @section('content')
@@ -83,44 +85,44 @@
                                             </a>
                                         </div>
 
-                                        @foreach($service->galleries as $gallery)
-                                            <div class="swiper-slide">
-                                                <a href="{{ $gallery->image->path ?? '' }}">
-                                                    <img
-                                                        src="{{ $gallery->image->path ?? '' }}"
-                                                        alt="">
-                                                </a>
-                                            </div>
-                                        @endforeach
+{{--                                        @foreach($service->galleries as $gallery)--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <a href="{{ $gallery->image->path ?? '' }}">--}}
+{{--                                                    <img--}}
+{{--                                                        src="{{ $gallery->image->path ?? '' }}"--}}
+{{--                                                        alt="">--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        @endforeach--}}
 
 
                                     </div>
 
                                 </div>
 
-                                <div class="swiper-container gallery-thumbs">
-                                    <div class="swiper-wrapper">
+{{--                                <div class="swiper-container gallery-thumbs">--}}
+{{--                                    <div class="swiper-wrapper">--}}
 
-                                        <div class="swiper-slide">
-                                            <img
-                                                src="{{ $service->image->path ?? '' }}"
-                                                alt="">
-                                        </div>
+{{--                                        <div class="swiper-slide">--}}
+{{--                                            <img--}}
+{{--                                                src="{{ $service->image->path ?? '' }}"--}}
+{{--                                                alt="">--}}
+{{--                                        </div>--}}
 
-                                        @foreach($service->galleries as $gallery)
-                                            <div class="swiper-slide">
-                                                <img
-                                                    src="{{ $gallery->image->path ?? '' }}"
-                                                    alt="">
-                                            </div>
-                                        @endforeach
+{{--                                        @foreach($service->galleries as $gallery)--}}
+{{--                                            <div class="swiper-slide">--}}
+{{--                                                <img--}}
+{{--                                                    src="{{ $gallery->image->path ?? '' }}"--}}
+{{--                                                    alt="">--}}
+{{--                                            </div>--}}
+{{--                                        @endforeach--}}
 
 
-                                    </div>
-                                </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
                                 <!-- Add Arrows -->
-                                <div class="swiper-button-next swiper-button-white"></div>
-                                <div class="swiper-button-prev swiper-button-white"></div>
+{{--                                <div class="swiper-button-next swiper-button-white"></div>--}}
+{{--                                <div class="swiper-button-prev swiper-button-white"></div>--}}
 
                                 <!--<div class="fs-icon" title="Expand/Close"></div>-->
                             </div>
@@ -211,10 +213,76 @@
                         </div>
                     </div>
                     <div class="row">
+                        <style>
+                            /* Vùng bài viết */
+                            #post-content table {
+                                border-collapse: collapse !important;
+                                table-layout: fixed !important; /* tránh cột co méo thất thường */
+                                width: max(100%, calc(var(--cols, 6) * 140px)) !important; /* tối thiểu 140px mỗi cột */
+                                background: #fff;
+                                font-size: 14.5px;
+                            }
 
+                            #post-content .table-scroll {
+                                width: 100%;
+                                overflow-x: auto;
+                                -webkit-overflow-scrolling: touch;
+                                border: 1px solid rgba(33,150,243,.25);
+                                border-radius: 12px;
+                                background: linear-gradient(180deg, #f7fbff, #fff);
+                                padding: 8px;
+                                margin: 16px 0;
+                                position: relative;
+                                box-shadow: 0 10px 24px rgba(33,150,243,.12);
+                            }
+
+                            /* Gợi ý có thể cuộn */
+                            #post-content .table-scroll-hint{
+                                position: absolute; right: 12px; bottom: 8px;
+                                background: #2196f3; color: #fff; padding: 4px 8px;
+                                font-size: 12px; border-radius: 999px; opacity: .9;
+                                pointer-events: none; user-select: none;
+                            }
+                            #post-content .table-scroll-hint.hide{ opacity: 0; transition: opacity .2s; }
+
+                            /* Viền, khoảng cách ô */
+                            #post-content table th,
+                            #post-content table td{
+                                border: 1px solid #e6effc;
+                                padding: 10px 12px;
+                                word-break: break-word; /* nếu có text quá dài */
+                            }
+
+                            /* Header sticky + màu xanh nhạt */
+                            #post-content table thead th{
+                                position: sticky; top: 0; z-index: 2;
+                                background: #e9f3ff;
+                                color: #0f3e86;
+                                font-weight: 700;
+                                box-shadow: 0 1px 0 #dbeafe;
+                            }
+
+                            /* Zebra rows */
+                            #post-content table tbody tr:nth-child(odd){ background: #f8fbff; }
+
+                            /* Scrollbar nhẹ nhàng (WebKit) */
+                            #post-content .table-scroll::-webkit-scrollbar{ height: 10px; }
+                            #post-content .table-scroll::-webkit-scrollbar-track{ background: #eef6ff; border-radius: 8px; }
+                            #post-content .table-scroll::-webkit-scrollbar-thumb{ background: #9cc7fb; border-radius: 8px; }
+                            #post-content .table-scroll::-webkit-scrollbar-thumb:hover{ background: #79b3fb; }
+
+                            /* Caption (nếu bài viết có <caption>) */
+                            #post-content table caption{
+                                caption-side: top;
+                                text-align: left;
+                                padding: 6px 0 10px;
+                                font-weight: 600; color: #1565c0;
+                            }
+
+                        </style>
                         <div class="col-xs-12">
                             <!-- Nav tabs -->
-                            <div class="tab-content ck-content product-tabs-content" id="post-content" style="display: block !important;">
+                            <div class="tab-content ck-content product-tabs-content editor-content" id="post-content" style="display: block !important;">
 
                                 <div class="tab-pane fade in active rte" role="tabpanel" id="pd-1" style="display: block !important;">
                                    {!! $service->content !!}
@@ -464,6 +532,49 @@
 
     <script src="/site/cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
     <script src="/site/cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const root = document.querySelector('#post-content');
+            if (!root) return;
+
+            root.querySelectorAll('table').forEach(function (table) {
+                // Bỏ qua nếu đã được bọc
+                if (table.closest('.table-scroll')) return;
+
+                // Tạo wrapper cuộn ngang
+                const wrap = document.createElement('div');
+                wrap.className = 'table-scroll';
+                wrap.setAttribute('role', 'region');
+                wrap.setAttribute('aria-label', 'Bảng có thể cuộn ngang');
+
+                // Tính số cột để set min-width hợp lý
+                let cols = 0;
+                const headRow = (table.tHead && table.tHead.rows[0]) || table.rows[0];
+                if (headRow) {
+                    for (const cell of headRow.cells) cols += cell.colSpan || 1;
+                }
+                wrap.style.setProperty('--cols', cols || 6);
+
+                // Chèn wrapper
+                table.parentNode.insertBefore(wrap, table);
+                wrap.appendChild(table);
+
+                // Gợi ý kéo để xem thêm
+                const hint = document.createElement('div');
+                // hint.className = 'table-scroll-hint';
+                // hint.innerHTML = '<span>Kéo để xem thêm →</span>';
+                wrap.appendChild(hint);
+
+                // Ẩn gợi ý khi người dùng cuộn
+                wrap.addEventListener('scroll', function () {
+                    if (wrap.scrollLeft > 8) hint.classList.add('hide');
+                    else hint.classList.remove('hide');
+                }, { passive: true });
+            });
+        });
+    </script>
+
     <script>
 
         $(document).ready(function () {

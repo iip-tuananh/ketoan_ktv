@@ -36,7 +36,7 @@
                 </div>
                 <div class="form-group custom-group">
                     <label class="form-label">Địa chỉ văn phòng giao dịch</label>
-                    <input class="form-control" ng-model="form.address" type="text">
+                    <input class="form-control" ck-editor ng-model="form.address_center_insurance" type="text">
                 </div>
                 <div class="form-group custom-group">
                     <label class="form-label">Mã số thuế</label>

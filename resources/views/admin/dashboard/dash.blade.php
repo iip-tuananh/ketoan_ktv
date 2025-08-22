@@ -83,7 +83,7 @@ Admin Panel - {{ $config->web_title }}
             <div class="icon">
                 <i class="fas fa-hands-helping"></i>
             </div>
-            <a href="{{ route('Product.index') }}" class="small-box-footer">
+            <a href="{{ route('services.index') }}" class="small-box-footer">
                 Xem chi tiết <i class="fas fa-arrow-circle-right"></i>
             </a>
         </div>

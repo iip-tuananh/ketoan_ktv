@@ -1,96 +1,219 @@
 @extends('site.layouts.master')
-
-@section('title')Thành viên - {{ $config->web_title }}@endsection
-@section('description'){{ strip_tags(html_entity_decode($config->introduction)) }}@endsection
-@section('image'){{@$config->image->path ?? ''}}@endsection
+@section('title')
+    Liên hệ - {{ $config->web_title }}
+@endsection
+@section('description')
+    {{ strip_tags(html_entity_decode($config->introduction)) }}
+@endsection
+@section('image')
+    {{@$config->image->path ?? ''}}
+@endsection
 
 @section('css')
+    <style>
+        .invalid-feedback {
+            /*display: none;*/
+            width: 100%;
+            margin-top: 0.25rem;
+            font-size: 100%;
+            color: #dc3545;
+        }
+    </style>
 
+    <style>
+        .send-success-message {
+            display: flex;
+            align-items: center;
+            background-color: #e6ffed; /* nền xanh nhạt */
+            border: 1px solid #71d58b; /* viền xanh tươi */
+            color: #2d6a4f; /* chữ xanh đậm */
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 1rem;
+            gap: 12px; /* khoảng cách icon - text */
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            margin-bottom: 10px;
+        }
+
+        .send-success-message i {
+            font-size: 1.4rem;
+        }
+
+        .send-success-message p {
+            margin: 0;
+            line-height: 1.4;
+        }
+    </style>
 @endsection
 
 @section('content')
-    <!-- Main Wrapper-->
-    <style>
-        .wptb-page-heading .wptb-item--inner {
-            position: relative;
-            background-size: cover;
-            background-position: center;
-            overflow: hidden;
-        }
+    <section class="bread-crumb">
+        <div class="container">
 
-        /* Lớp nền mờ */
-        .wptb-page-heading .wptb-item--inner::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.3); /* Đen 40% mờ */
-            z-index: 1;
-        }
+            <ul class="breadcrumb">
+                <li class="home">
+                    <a href="{{ route('front.home-page') }}"><span>Trang chủ</span></a>
+                    <span class="mr_lr">&nbsp;<i class="fa fa-angle-right"></i>&nbsp;</span>
+                </li>
 
-        /* Đưa tiêu đề lên trên overlay */
-        .wptb-page-heading .wptb-item--title {
-            position: relative;
-            z-index: 2;
-            color: #fff; /* Đảm bảo chữ trắng nổi bật */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.6);
-        }
-    </style>
-    <main class="wrapper">
-        <!-- Page Header -->
-        <div class="wptb-page-heading">
-            <div class="wptb-item--inner" style="background-image: url({{ $banner->image->path ?? '' }});">
-                <div class="wptb-item-layer wptb-item-layer-one">
-                    <img src="/site/img/more/circle.png" alt="img">
+                <li><strong><span>Liên hệ</span></strong></li>
+
+            </ul>
+
+        </div>
+    </section>
+    <div class="container contact padding-top-30" ng-controller="aboutPage" >
+        <div class="row">
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="widget-item info-contact">
+                    <div class="headquarters_contact">
+                        <h3>Thông tin liên hệ</h3>
+                    </div>
+
+                    <ul>
+                        <li class="contact-i">
+                            <div class="icon_contact"><i class="fa fa-map-signs"></i></div>
+                            <div class="text_contact">
+                                {{ $config->address_company }}
+                            </div> <br>
+                            <div class="text_contact">
+                                Văn phòng giao dịch:
+                            </div>
+                            <div class="text_contact">
+                                {!! $config->address_center_insurance !!}
+                            </div>
+                        </li>
+                        <li class="contact-i">
+                            <div class="icon_contact"><i class="fa fa-paper-plane"></i></div>
+                            <div class="text_contact"><a href=""><span class="__cf_email__"
+                                                                       data-cfemail=""> {{ $config->email }}</span></a>
+                            </div>
+                        </li>
+                        <li class="contact-i">
+                            <div class="icon_contact" style="font-size: 17px;"><i class="fa fa-phone"></i></div>
+                            <div class="text_contact"><a href="tel:{{ $config->hotline }}">{{ $config->hotline }}</a>
+                            </div>
+                        </li>
+                    </ul>
+
                 </div>
-                <h2 class="wptb-item--title ">Thành viên</h2>
+            </div>
+
+            <style>
+
+            </style>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" ng-cloak>
+                <div class="page-login page_contact">
+                    <div id="login-contact">
+                        <form method="post" id="contactForm" accept-charset="UTF-8">
+
+                            <p id="errorFills" style="margin-bottom:10px; color: red;"></p>
+                            <div id="emtry_contact" class="form-signup form_contact clearfix">
+                                <fieldset class="form-group-contact" style="float: left">
+                                    <input type="text" name="name" id="name"
+                                           class="form-control form-control-lg form-contact-a form-contact-1"
+                                           placeholder="Nhập họ tên">
+                                    <div class="invalid-feedback d-block" ng-if="errors['name']"><% errors['name'][0] %></div>
+
+                                </fieldset>
+
+                                <fieldset class="form-group-contact">
+                                    <input type="email" name="phone" style="border-bottom:none"
+                                           placeholder="Nhập số điện thoại"
+                                           class="form-control form-control-lg form-contact-a">
+                                    <div class="invalid-feedback d-block" ng-if="errors['phone']"><% errors['phone'][0] %></div>
+                                </fieldset>
+                                <fieldset class="form-group-contact">
+                                    <textarea name="message" id="comment"
+                                              class="form-control form-control-lg form-contact-a" rows="5"
+                                              placeholder="Nội dung"
+                                              minlength="5"></textarea>
+                                    <div class="f-right btn-submit-contact">
+                                        <button type="button" class="btn btn-primary btn-contact-plane" ng-click="submitForm()"  ng-disabled="loading">
+                                            <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="box-maps">
+            <div class="iFrameMap">
+                <div class="google-map">
+                    <div id="contact_map" class="map">
+                        {!! $config->location !!}
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Our Team -->
-        <section class="wptb-team-one">
-            <div class="container">
+    </div>
 
-                <div class="wptb-team--inner">
-                    <div class="row">
-                        <!-- Team Block -->
-                        @foreach($teams as $team)
-                            <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="wptb-team-grid1">
-                                    <div class="wptb-item--inner">
-                                        <div class="wptb-item--image">
-                                            <img src="{{ $team->image->path ?? '' }}" alt="img">
-                                        </div>
 
-                                        <div class="wptb-item--holder">
-                                            <div class="wptb-item--meta">
-                                              <a href="{{ route('front.teams', $team->id) }}">
-                                                  <h5 class="wptb-item--title">{{ $team->name }}</h5>
-                                              </a>
-                                                <p class="wptb-item--position">{{ $team->position }}</p>
-                                            </div>
-                                            <div class="wptb-item--social">
-                                                <a href="{{ $team->facebook }}">FB</a>
-                                                <a href="{{ $team->ins }}">IG</a>
-                                                <a href="{{ $team->pri }}">YT</a>
-                                                <a href="{{ $team->tw }}">TW</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <style>
+        .google-map {
+            width: 100%;
+            margin-bottom: 50px;
+        }
 
-                        @endforeach
+        .google-map .map {
+            width: 100%;
+            height: 450px;
+            background: #dedede
+        }
+    </style>
 
-                    </div>
-                </div>
 
-            </div>
-        </section>
-
-    </main>
 @endsection
 
 @push('scripts')
+    <script>
+        app.controller('aboutPage', function ($rootScope, $scope, $interval) {
+            console.log(2)
+            $scope.errors = [];
+            $scope.sendSuccess = false;
+            $scope.submitForm = function () {
+                var url = "{{route('front.submitContact')}}";
+                var data = jQuery('#contactForm').serialize();
+                $scope.loading = true;
+                jQuery.ajax({
+                    type: 'POST',
+                    url: url,
+                    headers: {
+                        'X-CSRF-TOKEN': CSRF_TOKEN
+                    },
+                    data: data,
+                    success: function (response) {
+                        if (response.success) {
+                            toastr.success(response.message);
+                            jQuery('#contactForm')[0].reset();
+                            $scope.errors = [];
+                            $scope.sendSuccess = true;
+                            $scope.$apply();
+                        } else {
+                            $scope.errors = response.errors;
+                            toastr.warning(response.message);
 
+                            console.log($scope.errors)
+                        }
+                    },
+                    error: function () {
+                        toastr.error('Đã có lỗi xảy ra');
+                    },
+                    complete: function () {
+                        $scope.loading = false;
+                        $scope.$apply();
+                    }
+                });
+            }
 
+        })
+    </script>
 @endpush

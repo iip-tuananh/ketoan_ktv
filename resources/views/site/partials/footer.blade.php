@@ -89,7 +89,10 @@
                     </span>
                     <br>
                     <span>
-                      VPGD: {{ $config->address }}
+                      Văn phòng giao dịch:
+                    </span>
+                    <span>
+                        {!! $config->address_center_insurance !!}
                     </span>
 
                 </div>

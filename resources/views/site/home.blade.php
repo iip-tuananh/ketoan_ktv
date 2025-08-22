@@ -491,7 +491,8 @@
 {{--                                    <h2><a href="#">Khách hàng tiêu biểu</a></h2>--}}
                                 </div>
                                 <div class="field_work_short">
-                                    Phương châm dịch vụ chuẩn mực minh bạch và phát triển bền vững, chúng tôi khẳng định vị thế là công ty kiểm toán, kế toán, thuế và thẩm định giá uy tín hàng đầu – nơi hội tụ niềm tin, sự chính trực và giá trị trường tồn cho doanh nghiệp.
+                                   <strong><i>Phương châm dịch vụ:</i></strong> <br>
+                                    Trên hành trình kiến tạo chuẩn mực minh bạch và phát triển bền vững, chúng tôi khẳng định vị thế là công ty Kiểm toán, Kế toán, Thuế và Thẩm định giá uy tín hàng đầu - nơi hội tụ niềm tin, sự chính trực và giá trị trường tồn cho doanh nghiệp.
                                 </div>
                                 <i>Chúng tôi hợp tác với khách hàng để kiến tạo tương lai, niềm tin và giá trị</i>
                             </div>

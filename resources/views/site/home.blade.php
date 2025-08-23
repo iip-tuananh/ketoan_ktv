@@ -17,14 +17,26 @@
 
 @section('content')
 
+    <style>
+        /* 1) Ẩn trước khi Owl init hoàn tất (Owl tự thêm .owl-loaded sau khi khởi tạo) */
+        .owl-slideshow{opacity:0; transition:opacity .3s ease;}
+        .owl-slideshow.owl-loaded{opacity:1}
+
+        /* 2) Giữ chỗ để tránh nhấp nháy/nhảy layout khi ảnh chưa tải */
+        .owl-slideshow .item img{
+            width:100%; height:100%; object-fit:cover; display:block;
+        }
+
+    </style>
     <section class="awe-section-1">
         <div class="owl-slideshow owl-carousel not-dqowl" data-md-items='1' data-sm-items='1' data-xs-items="1"
              data-margin='0'>
 
-            @foreach($banners as $banner)
+            @foreach($banners as $i => $banner)
                 <div class="item">
                     <a href="#" class="clearfix">
                         <img src="{{ $banner->image->path ?? '' }}"
+                             @if($i>0) loading="lazy" @else fetchpriority="high" decoding="async" @endif
                              alt="">
                     </a>
                 </div>

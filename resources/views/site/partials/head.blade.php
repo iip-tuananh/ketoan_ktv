@@ -152,3 +152,54 @@
 
 
 </style>
+
+
+<style>
+    /* Mobile only */
+    @media (max-width: 767.98px){
+        .container .breadcrumb{
+            display: flex !important;
+            flex-wrap: wrap !important;            /* cho phép xuống dòng */
+            gap: 6px 8px !important;               /* row-gap | column-gap */
+            padding: 8px 12px !important;
+            margin: 0 !important;
+            list-style: none;
+            background: transparent !important;    /* nếu Bootstrap thêm nền */
+        }
+
+        .container .breadcrumb li{
+            display: inline-flex !important;     /* gom text + icon phân cách trong cùng "khối" */
+            align-items: center !important;
+            flex: 0 1 auto !important;           /* co giãn và xuống dòng khi thiếu chỗ */
+            max-width: 100% !important;
+            font-size: 14px !important;
+            line-height: 1.4 !important;
+        }
+
+        /* Cho phép chữ trong từng mục tự wrap gọn gàng */
+        .container .breadcrumb li a,
+        .container .breadcrumb li strong{ display: inline !important; }
+
+        .container .breadcrumb li a span,
+        .container .breadcrumb li strong span{
+            white-space: normal !important;
+            word-break: break-word !important;  /* xử lý tên dài */
+            hyphens: auto !important;
+        }
+
+        /* Dấu phân cách ">" bám theo mục trước, không chiếm cả dòng */
+        .container .breadcrumb .mr_lr{
+            margin: 0 6px !important;
+            flex: 0 0 auto !important;             /* không co giãn, bám sát item trước */
+            opacity: .6 !important;
+        }
+        .container .breadcrumb li:last-child .mr_lr{ display: none; } /* ẩn dấu sau mục cuối */
+
+        /* Icon nhỏ gọn hơn trên mobile */
+        .container .breadcrumb .fa{
+            font-size: 12px;
+            line-height: 1;
+        }
+    }
+
+</style>

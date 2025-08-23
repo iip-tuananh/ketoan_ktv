@@ -46,7 +46,7 @@
 <script src="/site/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="/site/cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.6/js/jquery.fancybox.min.js"></script>
 <!-- Main JS -->
-<script src="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/main6008.js?1753153760720" type="text/javascript"></script>
+<script src="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/main6008.js?v=1234" type="text/javascript"></script>
 <!-- Product detail JS,CSS -->
 
 

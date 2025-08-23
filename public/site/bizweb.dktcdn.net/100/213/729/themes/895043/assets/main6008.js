@@ -294,10 +294,14 @@ $(document).ready(function()
 	$('#field_work_nav_list_action').slider({ slideBackId: 'icon_prev', slideNextId: 'icon_next' });
 	/* SlideShow OWL */
 	$(".owl-slideshow").owlCarousel({
-		loop:true,
+        loop: true,
+        autoplay: true,
 		margin:10,
 		responsiveClass:false,
-		dots: false,
+        autoplayTimeout: 3000,        // 4s đổi slide
+        autoplayHoverPause: true,     // hover thì tạm dừng
+        smartSpeed: 600,              // tốc độ chuyển
+		dots: true,
 		responsive:{
 			0:{
 				items:1,
@@ -310,7 +314,6 @@ $(document).ready(function()
 			1000:{
 				items:1,
 				nav:false,
-				loop:false
 			}
 		}
 	})

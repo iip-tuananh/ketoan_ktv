@@ -94,9 +94,9 @@
         width: 1400px;
     }
 
-    .bread-crumb .container {
-        width: 1400px;
-    }
+    /*.bread-crumb .container {*/
+    /*    width: 1400px;*/
+    /*}*/
 
     .header_top_slogan .container {
         max-width: 1400px;

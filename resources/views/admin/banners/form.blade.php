@@ -35,7 +35,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <label class="form-label">Ảnh</label>
                 <div class="main-img-preview">
-                    <p class="help-block-img">* Ảnh định dạng: jpg, png không quá 2MB.</p>
+                    <p class="help-block-img">* Ảnh định dạng: jpg,jpeg,png không quá 10MB.</p>
                     <img class="thumbnail img-preview" ng-src="<% form.image.path %>">
                 </div>
                 <div class="input-group" style="width: 100%; text-align: center">

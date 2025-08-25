@@ -134,7 +134,7 @@ class  BannerController extends Controller
             [
                 'title' => 'required',
                 'position' => 'required',
-                'image' => 'nullable|file|mimes:jpg,jpeg,png|max:10240',
+                'image' => 'nullable|file|mimes:jpg,jpeg,png,gif|max:10240',
             ]
         );
         $json = new stdClass();

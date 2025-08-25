@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Helpers\FileHelper;
 use App\Http\Traits\ResponseTrait;
+use App\Mail\NewContact;
 use App\Model\Admin\About;
 use App\Model\Admin\AboutPage;
 use App\Model\Admin\Achievement;
@@ -38,6 +39,7 @@ use App\Model\Admin\Tour;
 use App\Model\Admin\VideoBlock;
 use App\Model\Admin\WorkFlow;
 use App\Model\Common\File;
+use App\Model\Common\User;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -854,6 +856,13 @@ class FrontController extends Controller
         if($request->times) {
             $datetime = Carbon::createFromFormat('Y-m-d\TH:i', $request->times);
             $contact->time = $datetime;
+        }
+
+        // gửi mail cho admin
+        $config = Config::query()->first();
+
+        if ($config->email) {
+            \Illuminate\Support\Facades\Mail::to($config->email)->send(new NewContact($contact, $config));
         }
 
         $contact->save();

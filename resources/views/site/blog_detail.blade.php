@@ -20,15 +20,15 @@
 
             <ul class="breadcrumb">
                 <li class="home">
-                    <a  href="index.html" ><span >Trang chủ</span></a>
+                    <a  href="{{ route('front.home-page') }}" ><span >Trang chủ</span></a>
                     <span class="mr_lr">&nbsp;<i class="fa fa-angle-right"></i>&nbsp;</span>
                 </li>
 
                 <li >
-                    <a  href="tin-tuc.html"><span >Tin tức</span></a>
+                    <a  href="{{ route('front.getPostCategory', $category->slug) }}"><span >{{ $category->name }}</span></a>
                     <span class="mr_lr">&nbsp;<i class="fa fa-angle-right"></i>&nbsp;</span>
                 </li>
-                <li><strong><span >Dự án khu phức hợp sang trọng tiện nghi Ascott Waterfront Saigon TP Hồ Chí Minh</span></strong></li>
+                <li><strong><span >{{ $post->name }}</span></strong></li>
 
             </ul>
 

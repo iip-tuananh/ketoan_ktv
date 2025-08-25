@@ -171,8 +171,9 @@ class FrontController extends Controller
             ->latest()->get()->take(9);
         $postCategory = PostCategory::query()
             ->where('type', 1)->orderBy('sort_order')->get();
+        $category = PostCategory::query()->where('id', $post->cate_id)->first();
 
-        return view('site.blog_detail', compact('post', 'otherPosts','postCategory'));
+        return view('site.blog_detail', compact('post', 'otherPosts','postCategory','category'));
     }
 
     public function getCourseDetail(Request $request, $slug) {

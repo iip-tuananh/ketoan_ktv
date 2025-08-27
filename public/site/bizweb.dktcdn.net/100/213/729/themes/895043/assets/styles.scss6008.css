@@ -4296,6 +4296,7 @@ body {
     position: absolute;
     top: 39%;
     right: 0;
+    /*right: 300px;*/
     z-index: 999
 }
 
@@ -4337,6 +4338,7 @@ body {
     position: absolute;
     top: 80px;
     right: -10px;
+    /*right: 300px;*/
     width: 320px;
     float: right !important;
     margin-right: 0;

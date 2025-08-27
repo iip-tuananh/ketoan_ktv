@@ -105,11 +105,6 @@
     }
 
 
-
-
-
-
-
     .lang-switcher .lang-select {
         display: inline-block;
         width: 130px;
@@ -140,7 +135,7 @@
         position: relative;
         display: inline-block;
         font-family: sans-serif;
-        overflow: hidden;       /* cắt mọi thứ tràn ra ngoài */
+        overflow: hidden; /* cắt mọi thứ tràn ra ngoài */
         /* nếu muốn căn phải, tùy layout */
         /* float: right; */
     }
@@ -149,7 +144,7 @@
         /* 1. Ẩn arrow mặc định */
         appearance: none;
         -webkit-appearance: none; /* Chrome, Safari, Opera */
-        -moz-appearance: none;    /* Firefox */
+        -moz-appearance: none; /* Firefox */
 
         /* 2. Kiểu nền & border */
         background-color: #fff;
@@ -165,9 +160,10 @@
         line-height: 1.2;
 
         /* 5. Bóng đổ nhẹ */
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 
-        cursor: pointer;  box-sizing: border-box;
+        cursor: pointer;
+        box-sizing: border-box;
 
         transition: border-color .2s, box-shadow .2s;
     }
@@ -188,10 +184,11 @@
     .lang-select:hover {
         border-color: #bbb;
     }
+
     .lang-select:focus {
         outline: none;
         border-color: #6ca0dc;
-        box-shadow: 0 0 0 3px rgba(108,160,220,0.3);
+        box-shadow: 0 0 0 3px rgba(108, 160, 220, 0.3);
     }
 
 
@@ -210,12 +207,13 @@
     /* Tinh chỉnh thêm trên màn nhỏ (<=576px) */
     @media (max-width: 767px) {
         .lang-select {
-            max-width: 120px;       /* không to quá */
-            font-size: 0.75rem;     /* chữ nhỏ hơn */
+            max-width: 120px; /* không to quá */
+            font-size: 0.75rem; /* chữ nhỏ hơn */
             padding: 0.3em 1.4em 0.3em 0.5em;
         }
+
         .lang-switcher::after {
-            right: 0.5em;           /* co mũi tên vào */
+            right: 0.5em; /* co mũi tên vào */
             font-size: 0.6em;
         }
     }
@@ -240,7 +238,8 @@
                         </div>
                         <!-- select ngôn ngữ bên phải -->
                         <div class="lang-switcher pull-right">
-                            <select class="form-control lang-select"  id="siteLang" onchange="translateheader(this.value)">
+                            <select class="form-control lang-select" id="siteLang"
+                                    onchange="translateheader(this.value)">
                                 <option value="vi">Tiếng Việt</option>
                                 <option value="en">English</option>
                                 <option value="zh-CN">中文（简体）</option>
@@ -271,19 +270,19 @@
                         <div class="menu_mobile_pushmenu menu_mobile_pushmenu_left">
                             <ul class="menu_mobile_list_inner">
 
-                                <li class="level0 "> <a href="{{ route('front.home-page') }}">Trang chủ</a></li>
-                                <li class="level0 "> <a href="{{ route('front.about_page') }}">Giới thiệu</a></li>
-                                <li class="level0 "> <a href="{{ route('front.getServices') }}">Dịch vụ</a></li>
+                                <li class="level0 "><a href="{{ route('front.home-page') }}">Trang chủ</a></li>
+                                <li class="level0 "><a href="{{ route('front.about_page') }}">Giới thiệu</a></li>
+                                <li class="level0 "><a href="{{ route('front.getServices') }}">Dịch vụ</a></li>
                                 @foreach($postCategories as $postCate)
-                                    <li class="level0 "> <a href="{{ route('front.getPostCategory', $postCate->slug) }}"
-                                                            @if(in_array($postCate->slug, ['ifrs', 'esg']))
-                                                                class="notranslate"
-                                                            translate="no"
+                                    <li class="level0 "><a href="{{ route('front.getPostCategory', $postCate->slug) }}"
+                                                           @if(in_array($postCate->slug, ['ifrs', 'esg']))
+                                                               class="notranslate"
+                                                           translate="no"
                                             @endif>
                                             {{ $postCate->name }}
                                         </a></li>
                                 @endforeach
-                                <li class="level0 "> <a href="{{ route('front.contact') }}">Liên hệ</a></li>
+                                <li class="level0 "><a href="{{ route('front.contact') }}">Liên hệ</a></li>
 
                             </ul>
                         </div>
@@ -294,33 +293,71 @@
                 <!-- End Menu mobile -->
 
                 <!-- Logo -->
+
+                <style>
+                    /*!* 1) Ngắt float phải của nav khi dùng chế độ scroll *!*/
+                    nav.menu_main.nav-one-line-scroll.pull-right{
+                        float: none !important;
+                        display: block;
+                        width: 100%;
+                    }
+
+                    /*!* 2) Bật scroll ngang cho vùng chứa menu *!*/
+                    /*nav.menu_main.nav-one-line-scroll .menu_main_list{*/
+                    /*    overflow-x: auto !important;*/
+                    /*    overflow-y: hidden !important;*/
+                    /*    -webkit-overflow-scrolling: touch;*/
+                    /*}*/
+
+                    /*!* 3) Ép UL rộng bằng tổng item để chắc chắn phát sinh tràn -> hiện scrollbar *!*/
+                    /*nav.menu_main.nav-one-line-scroll .menu_main_list > ul#nav{*/
+                    /*    display: inline-flex !important;*/
+                    /*    flex-wrap: nowrap !important;*/
+                    /*    min-width: max-content !important;*/
+                    /*}*/
+
+                    /*!* 4) Mỗi <li> là một khối cố định, không co lại *!*/
+                    /*nav.menu_main.nav-one-line-scroll .menu_main_list > ul#nav > li{*/
+                    /*    flex: 0 0 auto !important;*/
+                    /*}*/
+
+
+
+                </style>
                 <div
-                    class="col-md-3 col-sm-10 col-xs-6 col-xs-offset-3 col-lg-offset-0 col-sm-offset-1 col-md-offset-0">
+                    class="col-md-2 col-sm-10 col-xs-6 col-xs-offset-3 col-lg-offset-0 col-sm-offset-1 col-md-offset-0">
                     <div class="logo">
-                        <a href="{{ route('front.home-page') }}"><img src="{{ $config->image->path ?? '' }}" alt="logo " class="img-responsive" style="width: 110px"></a>
+                        <a href="{{ route('front.home-page') }}"><img src="{{ $config->image->path ?? '' }}" alt="logo "
+                                                                      class="img-responsive" style="width: 110px"></a>
                     </div>
                 </div>
+
                 <!-- End Logo -->
-                <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="col-md-10 col-sm-12 col-xs-12">
                     <!-- Menu -->
-                    <nav class="menu_main hidden-sm hidden-xs pull-right" style="background: #FFFFFF">
+                    <nav class="menu_main hidden-sm hidden-xs pull-right nav-one-line-scroll"
+                         style="background: #FFFFFF">
                         <div class="menu_main_list">
                             <ul id="nav">
-
-
-
-                                <li class="nav-item "><a class="nav-link" href="{{ route('front.home-page') }}">Trang chủ</a></li>
-                                <li class="nav-item "><a class="nav-link" href="{{ route('front.about_page') }}">Giới thiệu</a></li>
-                                <li class="nav-item "><a class="nav-link" href="{{ route('front.getServices') }}">Dịch vụ</a></li>
+                                <li class="nav-item "><a class="nav-link" href="{{ route('front.home-page') }}">Trang
+                                        chủ</a></li>
+                                <li class="nav-item "><a class="nav-link" href="{{ route('front.about_page') }}">Giới
+                                        thiệu</a></li>
+                                <li class="nav-item "><a class="nav-link" href="{{ route('front.getServices') }}">Dịch
+                                        vụ</a></li>
                                 @foreach($postCategories as $postCate)
-                                    <li class="nav-item "><a class="nav-link" href="{{ route('front.getPostCategory', $postCate->slug) }}"
+                                    <li class="nav-item "><a class="nav-link"
+                                                             href="{{ route('front.getPostCategory', $postCate->slug) }}"
                                                              @if(in_array($postCate->slug, ['ifrs', 'esg']))
                                                                  class="notranslate"
                                                              translate="no"
                                             @endif
                                         >{{ $postCate->name }}</a></li>
                                 @endforeach
-                                <li class="nav-item "><a class="nav-link" href="{{ route('front.contact') }}">Liên hệ</a></li>
+                                <li class="nav-item "><a class="nav-link" href="{{ route('front.contact') }}">Liên
+                                        hệ</a></li>
+
+
 
 
                             </ul>
@@ -330,8 +367,9 @@
                     <!-- Search -->
                     <div class="searchboxlager">
                         <div class="searchfromtop">
-                            <form autocomplete="off"  ng-submit="search()">
-                                <input type="text" class="form-control" maxlength="70" name="query" id="search" placeholder="Nhập từ khóa tìm kiếm và ấn enter"
+                            <form autocomplete="off" ng-submit="search()">
+                                <input type="text" class="form-control" maxlength="70" name="query" id="search"
+                                       placeholder="Nhập từ khóa tìm kiếm và ấn enter"
                                        ng-model="keywords"
                                 >
                                 <button type="submit" style="display:none;"></button>

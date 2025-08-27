@@ -37,7 +37,7 @@
 
 <!-- Plugin CSS -->
 <link rel="preload" as='style' type="text/css" href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/base.scss6008.css?1753153760720">
-<link rel="preload" as='style'  type="text/css" href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/styles.scss6008.css?1753153760720">
+<link rel="preload" as='style'  type="text/css" href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/styles.scss6008.css?v=1.2">
 <link rel="preload" as='style' type="text/css" href="/site/maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="preload" as='style'  type="text/css" href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/module.scss6008.css?1753153760720">
 <link rel="preload" as='style' type="text/css" href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/responsive.scss6008.css?1753153760720">
@@ -53,7 +53,7 @@
 <!-- Build Main CSS -->
 <link href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/base.scss6008.css?1753153760720" rel="stylesheet" type="text/css" media="all" />
 <link href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/style.scss6008.css?1753153760720" rel="stylesheet" type="text/css" media="all" />
-<link href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/styles.scss6008.css?1753153760720" rel="stylesheet" type="text/css" media="all" />
+<link href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/styles.scss6008.css?v=1.2" rel="stylesheet" type="text/css" media="all" />
 <link href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/module.scss6008.css?1753153760720" rel="stylesheet" type="text/css" media="all" />
 <link href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/responsive.scss6008.css?1753153760720" rel="stylesheet" type="text/css" media="all" />
 <link href="/site/bizweb.dktcdn.net/100/213/729/themes/895043/assets/animate6008.css?1753153760720" rel="stylesheet" type="text/css" media="all" />

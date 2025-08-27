@@ -242,7 +242,11 @@
                         <div class="lang-switcher pull-right">
                             <select class="form-control lang-select"  id="siteLang" onchange="translateheader(this.value)">
                                 <option value="vi">Tiếng Việt</option>
-                                <option value="en">Tiếng Anh</option>
+                                <option value="en">English</option>
+                                <option value="zh-CN">中文（简体）</option>
+                                <option value="zh-TW">中文（繁體）</option>
+                                <option value="ko">한국어</option>
+                                <option value="ja">日本語</option>
                             </select>
                         </div>
                     </div>

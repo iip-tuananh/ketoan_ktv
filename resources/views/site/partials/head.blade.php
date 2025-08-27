@@ -119,7 +119,7 @@
 
 <script type="text/javascript">
     function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'vi',includedLanguages:'en,hi,vi,zh-CN', }, 'translate_select');
+        new google.translate.TranslateElement({pageLanguage: 'vi',includedLanguages:'en,hi,vi,zh-CN,zh-TW,ko,ja', }, 'translate_select');
     }
 </script>
 

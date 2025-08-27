@@ -296,11 +296,11 @@
 
                 <style>
                     /*!* 1) Ngắt float phải của nav khi dùng chế độ scroll *!*/
-                    nav.menu_main.nav-one-line-scroll.pull-right{
-                        float: none !important;
-                        display: block;
-                        width: 100%;
-                    }
+                    /*nav.menu_main.nav-one-line-scroll.pull-right{*/
+                    /*    float: none !important;*/
+                    /*    display: block;*/
+                    /*    width: 100%;*/
+                    /*}*/
 
                     /*!* 2) Bật scroll ngang cho vùng chứa menu *!*/
                     /*nav.menu_main.nav-one-line-scroll .menu_main_list{*/
@@ -320,6 +320,72 @@
                     /*nav.menu_main.nav-one-line-scroll .menu_main_list > ul#nav > li{*/
                     /*    flex: 0 0 auto !important;*/
                     /*}*/
+                    /* 1) Wrapper thành 1 hàng linh hoạt */
+                    .header-inline{
+                        display:flex;align-items:center;justify-content:flex-start;gap:10px;position:relative;
+                    }
+                    .header-inline nav.menu_main.nav-one-line-scroll.pull-right{
+                        float:none!important;width:auto!important;display:block;max-width:calc(100% - 44px);
+                    }
+                    .header-inline .menu_main_list > ul#nav{
+                        display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:0;
+                    }
+
+
+                    /* 2) Menu không chiếm 100% chiều rộng nữa */
+                    nav.menu_main.nav-one-line-scroll.pull-right{
+                        float: none !important;
+                        width: auto !important;     /* <-- quan trọng: thay cho 100% */
+                        /*display: block !important;*/
+                        max-width: calc(100% - 44px) !important;  /* chừa chỗ cho icon search (~44px) */
+                    }
+
+                    /* 3) Danh sách menu nằm 1 hàng đẹp */
+                    .menu_main_list > ul#nav{
+                        display: flex !important;
+                        flex-wrap: wrap !important;           /* tự xuống dòng nếu chật */
+                        align-items: center !important;
+                        justify-content: flex-end !important;
+                        gap: 16px !important;
+                        margin: 0 !important;
+                    }
+
+                    /* Desktop only (md trở lên) */
+                    @media (min-width: 992px) {
+                        .header-inline .search_form_main{
+                            position: static !important;      /* bỏ absolute để ngồi chung hàng */
+                            display: inline-flex !important;
+                            align-items: center !important;
+                            flex: 0 0 auto !important;
+                            margin-left: 4px !important;      /* sát menu */
+                            z-index: 1 !important;            /* đủ cao để click */
+                        }
+                    }
+
+
+
+                    /* 5) Kích thước, tương tác icon search */
+                    .search_form_icon{
+                        display: inline-flex !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        width: 36px !important;
+                        height: 36px !important;
+                        cursor: pointer !important;
+                    }
+
+                    /* (khuyến nghị) đừng để line-height:0 áp vào mọi div trong header */
+                    .header_bottom div{
+                        /*line-height: normal !important;        !* thay vì 0, tránh bóp icon/text *!*/
+                        padding-right: 8px !important;
+                    }
+
+                    /* Giữ ô search popup như cũ (nếu bạn dùng) */
+                    .searchboxlager .searchfromtop{
+                        position: absolute !important;
+                        /*right: 0 !important;*/
+                        /*top: 100% !important;*/
+                    }
 
 
 
@@ -333,7 +399,7 @@
                 </div>
 
                 <!-- End Logo -->
-                <div class="col-md-10 col-sm-12 col-xs-12">
+                <div class="col-md-10 col-sm-12 col-xs-12 header-inline">
                     <!-- Menu -->
                     <nav class="menu_main hidden-sm hidden-xs pull-right nav-one-line-scroll"
                          style="background: #FFFFFF">
@@ -356,9 +422,6 @@
                                 @endforeach
                                 <li class="nav-item "><a class="nav-link" href="{{ route('front.contact') }}">Liên
                                         hệ</a></li>
-
-
-
 
                             </ul>
                         </div>

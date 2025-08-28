@@ -321,9 +321,21 @@
                     /*    flex: 0 0 auto !important;*/
                     /*}*/
                     /* 1) Wrapper thành 1 hàng linh hoạt */
+
                     .header-inline{
-                        display:flex;align-items:center;justify-content:center;gap:10px;position:relative;
+                        display:flex;align-items:center;gap:0px;position:relative;
+                        justify-content:end;        /* chuẩn */
                     }
+
+                    /* ví dụ: khi viewport <= 1300px thì center
+                       (bạn chỉnh 1300px theo layout của bạn) */
+                    @media (max-width: 1300px){
+                        .header-inline{ justify-content:center; }
+                    }
+
+                    /*.header-inline{*/
+                    /*    display:flex;align-items:center;justify-content:end;gap:10px;position:relative;*/
+                    /*}*/
                     .header-inline nav.menu_main.nav-one-line-scroll.pull-right{
                         float:none!important;width:auto!important;display:block;max-width:calc(100% - 44px);
                     }

@@ -322,7 +322,7 @@
                     /*}*/
                     /* 1) Wrapper thành 1 hàng linh hoạt */
                     .header-inline{
-                        display:flex;align-items:center;justify-content:flex-start;gap:10px;position:relative;
+                        display:flex;align-items:center;justify-content:center;gap:10px;position:relative;
                     }
                     .header-inline nav.menu_main.nav-one-line-scroll.pull-right{
                         float:none!important;width:auto!important;display:block;max-width:calc(100% - 44px);
